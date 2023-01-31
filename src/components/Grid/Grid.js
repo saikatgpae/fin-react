@@ -1,11 +1,15 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {Link} from "react-router-dom";
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles//ag-grid.css';
 import 'ag-grid-community/styles//ag-theme-alpine.css';
 
 export default function Grid() {
+
+  const data = useSelector((state) => state.formDataReducer);
+  console.log(data)
       const [rowData, setRowData] = useState([
         // {make: "Toyota", model: "Celica", price: 35000},
         // {make: "Ford", model: "Mondeo", price: 32000},
