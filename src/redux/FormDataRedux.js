@@ -26,8 +26,6 @@ const fetchCarData = () => (dispatch) => {
     });
   };
 
-// const initialState = [{Nmae: "Saikat"}];
-
 const formDataReducer = (state=[], action) => {
   switch (action.type) {
         case GET_CAR_DATA:

@@ -1,12 +1,14 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
 import fetchCarData from '../../redux/FormDataRedux';
 import { fetchOlymicData } from '../../redux/FormDataRedux';
+import Store from '../../redux/ConfigureStore';
 
 export default function Form() {
-  
+  const previousValue = Store.getState();
+
   const [value, setValue] = useState();
   const GetValue = (e) => {
     e.preventDefault();
@@ -14,20 +16,34 @@ export default function Form() {
     setValue(slelct_value);
   }
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (value === 'car') {
       dispatch(fetchCarData());
+
+      Store.subscribe(() => {
+        const newState = Store.getState();
+        if(newState !== previousValue){
+          navigate("/grid");
+        }
+      },[]);
     }
+    
     if (value === 'olympic') {
       dispatch(fetchOlymicData());
+      Store.subscribe(() => {
+        const newState = Store.getState();
+        if(newState !== previousValue){
+          navigate("/grid");
+        }
+      },[]);
     }
-  }, [dispatch, value]);
+  }, [dispatch, value, navigate, previousValue]);
 
-  const data = useSelector((state) => state.formDataReducer);
-  console.log(data)
+  
   return (
     <>
-        <h1>{value}</h1>
         <form className="p-4" action="#">
             <label>Dataset: </label>
             <select name="ldata-set" id="dataset">
@@ -35,7 +51,6 @@ export default function Form() {
                 <option value="olympic">olympic-data</option>
             </select>
             <input type="submit" value="Submit" onClick={GetValue} />
-            {/* <Link to="/grid"><input type="submit" value="Submit" onClick={GetValue} /></Link> */}
         </form>
     </>
   )
