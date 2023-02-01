@@ -36,7 +36,7 @@ export default function Grid() {
   return (
     <div className='p-4 text-center'>
       <Link to="/">Home</Link>
-      <h4>Hello Grid</h4>
+      <h4>Ag Grid</h4>
       <div className="ag-theme-alpine" style={{height: 400}}>
            <AgGridReact
                rowData={rowData}
