@@ -44,6 +44,7 @@ export default function Form() {
       <form className="p-4" action="#">
         <h2>Dataset:</h2>
         <select name="ldata-set" id="dataset">
+          <option value="select">--select--</option>
           <option value="car">car-data</option>
           <option value="olympic">olympic-data</option>
         </select>
