@@ -37,6 +37,7 @@ export default function Grid() {
           rowData={rowData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
+          pagination
         />
       </div>
     </div>
