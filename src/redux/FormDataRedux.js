@@ -3,11 +3,11 @@ import axios from 'axios';
 const GET_CAR_DATA = 'GET_CAR_DATA';
 const GET_OLYMPIC_DATA = 'GET_OLYMPIC_DATA';
 
-const carAPI = 'https://www.ag-grid.com/example-assets/row-data.json';
+const sportsAPI = 'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json';
 const olympicAPI = 'https://www.ag-grid.com/example-assets/olympic-winners.json';
 
 const fetchCarData = () => (dispatch) => {
-  axios.get(carAPI).then((res) => {
+  axios.get(sportsAPI).then((res) => {
     const carData = res.data;
     dispatch({
       type: GET_CAR_DATA,

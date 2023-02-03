@@ -6,6 +6,7 @@ import Store from '../../redux/ConfigureStore';
 
 export default function Form() {
   const previousValue = Store.getState();
+  const navigate = useNavigate();
 
   const [value, setValue] = useState();
   const GetValue = (e) => {
@@ -14,7 +15,6 @@ export default function Form() {
     setValue(slelctValue);
   };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (value === 'car') {
@@ -45,7 +45,7 @@ export default function Form() {
         <h2>Dataset:</h2>
         <select name="ldata-set" id="dataset">
           <option value="select">--select Dtata--</option>
-          <option value="car">car-data</option>
+          <option value="car">sports-data</option>
           <option value="olympic">olympic-data</option>
         </select>
         <input type="submit" value="Submit" onClick={GetValue} />
