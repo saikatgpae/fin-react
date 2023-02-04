@@ -33,7 +33,7 @@ export default function Grid() {
     <div className="p-4 text-center">
       <Link to="/">Home</Link>
       <h4>Ag Grid</h4>
-      <div className="ag-theme-alpine" style={{ height: 400 }}>
+      <div className="ag-theme-alpine" style={{ height: 600 }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={columnDefs}
