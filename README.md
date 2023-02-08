@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://63d9e4a2ac75a434c10619ae--poetic-lokum-6e0fec.netlify.app/)
+[Live Demo Link](https://curious-pastelito-a8c62c.netlify.app/)
 
 
 ## Getting Started
