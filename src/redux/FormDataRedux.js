@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-const GET_CAR_DATA = 'GET_CAR_DATA';
+const GET_SPORTS_DATA = 'GET_CAR_DATA';
 const GET_OLYMPIC_DATA = 'GET_OLYMPIC_DATA';
 
-const carAPI = 'https://www.ag-grid.com/example-assets/row-data.json';
+const sportsAPI = 'https://www.ag-grid.com/example-assets/wide-spread-of-sports.json';
 const olympicAPI = 'https://www.ag-grid.com/example-assets/olympic-winners.json';
 
 const fetchCarData = () => (dispatch) => {
-  axios.get(carAPI).then((res) => {
-    const carData = res.data;
+  axios.get(sportsAPI).then((res) => {
+    const sportsData = res.data;
     dispatch({
-      type: GET_CAR_DATA,
-      carData,
+      type: GET_SPORTS_DATA,
+      sportsData,
     });
   });
 };
@@ -28,9 +28,9 @@ const fetchOlymicData = () => (dispatch) => {
 
 const formDataReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_CAR_DATA:
+    case GET_SPORTS_DATA:
       return [
-        ...action.carData,
+        ...action.sportsData,
       ];
     case GET_OLYMPIC_DATA:
       return [

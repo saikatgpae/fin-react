@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+// import { useNavigate, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles//ag-grid.css';
 import 'ag-grid-community/styles//ag-theme-alpine.css';
@@ -32,11 +33,12 @@ export default function Grid() {
     <div className="p-4 text-center">
       <Link to="/">Home</Link>
       <h4>Ag Grid</h4>
-      <div className="ag-theme-alpine" style={{ height: 400 }}>
+      <div className="ag-theme-alpine" style={{ height: 600 }}>
         <AgGridReact
           rowData={rowData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
+          pagination
         />
       </div>
     </div>
